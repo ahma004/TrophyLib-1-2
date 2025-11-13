@@ -8,7 +8,7 @@ namespace TrophyLib
 {
     public class TrophiesRepository
     {
-        private readonly List<Trophy> _trophies = new();
+        private readonly List<Trophy> _trophies ;
         private int _nextId = 1;
 
         public TrophiesRepository()
