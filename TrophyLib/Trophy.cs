@@ -27,8 +27,9 @@ namespace TrophyLib
             get => _competition;
             set
             {
-                // Må ikke være null og min. 3 tegn (opgavekrav)
-                // KAST: ArgumentNullException ved null; ArgumentException ved længde < 3
+                //Kravene: 
+                // 1- Må ikke være null og min. 3 tegn 
+                // 2- KAST: ArgumentNullException ved null; ArgumentException ved længde < 3
                 if (value is null)
                     throw new ArgumentNullException(nameof(Competition), "Competition må ikke være null.");
                 if (value.Trim().Length < 3)
@@ -55,8 +56,18 @@ namespace TrophyLib
         public Trophy(int id, string competition, int year)
         {
             Id = id;
-            Competition = competition; // validerer
-            Year = year;               // validerer
+            Competition = competition; 
+            Year = year;               
+        }
+
+        //Kopi Constructor :
+        public Trophy(Trophy other)
+        {
+            if (other == null) throw new ArgumentNullException(nameof(other));
+
+            Id = other.Id;
+            Competition = other.Competition;
+            Year = other.Year;
         }
 
         public override string ToString()
